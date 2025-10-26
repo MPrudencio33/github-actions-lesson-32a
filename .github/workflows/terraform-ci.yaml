@@ -20,7 +20,11 @@ jobs:
         aws-region: us-east-1
  
     - name: Setup Terraform 
+<<<<<<< HEAD
       uses: hashicorp/setup-terraform@v3
+=======
+      uses: hashicorp/setup-terraform@v3 
+>>>>>>> 38d9410b8af5eea421a70c03783a4b18a71e4f00
  
     - name: Terraform fmt 
       run: terraform fmt -check 
