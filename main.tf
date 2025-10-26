@@ -34,12 +34,6 @@ locals {
   account_id  = data.aws_caller_identity.current.account_id
 }
 
-/*
-resource "aws_s3_bucket" "s3-tf" {
-  bucket = lower("${local.name_prefix}-s3-tf-bkt-${local.account_id}")
-}
-*/
-
 # ✅ Updated S3 bucket resource without deprecated interpolation
 resource "aws_s3_bucket" "s3-tf" {
   bucket = lower(format("%s-s3-tf-bkt-%s", var.name_prefix, random_id.bucket_id.hex))
