@@ -42,7 +42,7 @@ resource "aws_s3_bucket" "s3-tf" {
 
 # ✅ Updated S3 bucket resource without deprecated interpolation
 resource "aws_s3_bucket" "s3-tf" {
-  bucket = lower("${local.name_prefix}-s3-tf-bkt-${local.account_id}")
+  bucket = lower(format("%s-s3-tf-bkt-%s", var.name_prefix, random_id.bucket_id.hex))
   acl    = "private"
 }
 
