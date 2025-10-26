@@ -4,9 +4,9 @@ provider "aws" {
  
 terraform { 
   backend "s3" { 
-    bucket = "sctp-ce11-tfstate" 
+    bucket = "sctp-core-tfstate" 
     key    = "marlon.tfstate"  #Change this 
-    region = "us-east-1" 
+    region = "ap-southeast-1" 
   } 
 } 
  
