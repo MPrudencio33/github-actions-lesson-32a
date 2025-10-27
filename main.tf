@@ -24,7 +24,7 @@ terraform {
 data "aws_caller_identity" "current" {}
 
 locals {
-  name_prefix = split("/", data.aws_caller_identity.current.arn)[1]  
+  name_prefix = split("/", data.aws_caller_identity.current.arn)[1]
   account_id  = data.aws_caller_identity.current.account_id
 }
 
@@ -37,5 +37,5 @@ resource "aws_s3_bucket" "s3_tf" {
   # checkov:skip=CKV2_AWS_61:Ensure that an S3 bucket has a lifecycle configuration
   # checkov:skip=CKV_AWS_21:Ensure all data stored in the S3 bucket have versioning enabled
   # checkov:skip=CKV_AWS_144:Ensure that S3 bucket has cross-region replication enabled
-  bucket = format("%s-s3-tf-bkt-%s", local.name_prefix, tostring(local.account_id))  # bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
+  bucket = format("%s-s3-tf-bkt-%s", local.name_prefix, tostring(local.account_id)) # bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
 }
