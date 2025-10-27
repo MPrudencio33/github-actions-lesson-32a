@@ -14,9 +14,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-}
-
-terraform {
   backend "s3" {
     bucket = "sctp-ce11-tfstate"
     key    = "marlon32.tfstate" #Change this 
