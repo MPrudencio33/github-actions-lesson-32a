@@ -1,6 +1,6 @@
 terraform {
   # Specify the required Terraform version
-  required_version = ">= 1.0.0"
+  required_version = ">= 1.5.0"
 
   # Specify provider and version
   required_providers {
@@ -9,22 +9,15 @@ terraform {
       version = "~> 5.0"
     }
   }
-  backend "s3" {
-    bucket = "sctp-ce11-tfstate"
-    key    = "marlon.tfstate" #Change this
-    region = "us-east-1"
-  }
 }
 
-/*
 terraform {
   backend "s3" {
     bucket = "sctp-ce11-tfstate"
-    key    = "marlon.tfstate" #Change this 
+    key    = "marlon32.tfstate" #Change this 
     region = "us-east-1"
   }
 }
-*/
 
 provider "aws" {
   region = "us-east-1"
