@@ -16,7 +16,7 @@ terraform {
 
   backend "s3" {
     bucket = "sctp-ce11-tfstate"
-    key    = "marlon3-2.tfstate" #Change this 
+    key    = "marlon32.tfstate" #Change this 
     region = "us-east-1"
   }
 }
