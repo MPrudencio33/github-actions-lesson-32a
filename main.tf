@@ -44,13 +44,4 @@ resource "aws_s3_bucket" "s3-tf" {
   # checkov:skip=CKV_AWS_21:Ensure all data stored in the S3 bucket have versioning enabled
   # checkov:skip=CKV_AWS_144:Ensure that S3 bucket has cross-region replication enabled
   bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}" 
-  #bucket = lower(format("%s-s3-tf-bkt-%s", var.name_prefix, random_id.bucket_id.hex))
-  #acl    = "private"
-}
-
-# Example variable for name_prefix
-variable "name_prefix" {
-  type        = string
-  description = "Prefix for S3 bucket names"
-  default     = "marlonp"
 }
