@@ -1,15 +1,30 @@
 terraform {
-  # ✅ Specify the required Terraform version
-  required_version = ">= 1.5.0"
+  # Specify the required Terraform version
+  required_version = ">= 1.0.0"
 
-  # ✅ Specify provider and version
+  # Specify provider and version
   required_providers {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
   }
+  backend "s3" {
+    bucket = "sctp-core-tfstate"
+    key    = "marlon.tfstate" #Change this
+    region = "ap-southeast-1"
+  }
 }
+
+/*
+terraform {
+  backend "s3" {
+    bucket = "sctp-core-tfstate"
+    key    = "marlon.tfstate" #Change this 
+    region = "ap-southeast-1"
+  }
+}
+*/
 
 provider "aws" {
   region = "us-east-1"
@@ -19,13 +34,6 @@ resource "random_id" "bucket_id" {
   byte_length = 4
 }
 
-terraform {
-  backend "s3" {
-    bucket = "sctp-core-tfstate"
-    key    = "marlon.tfstate" #Change this 
-    region = "ap-southeast-1"
-  }
-}
 
 data "aws_caller_identity" "current" {}
 
