@@ -14,9 +14,6 @@ terraform {
       version = "~> 5.0"
     }
   }
-}
-
-terraform {
   backend "s3" {
     bucket = "sctp-ce11-tfstate"
     key    = "marlon32.tfstate" #Change this 
@@ -25,6 +22,13 @@ terraform {
 }
 
 /*
+terraform {
+  backend "s3" {
+    bucket = "sctp-ce11-tfstate"
+    key    = "marlon32.tfstate" #Change this 
+    region = "us-east-1"
+  }
+}
 resource "random_id" "bucket_id" {
   byte_length = 4
 }
