@@ -10,18 +10,18 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "sctp-core-tfstate"
+    bucket = "sctp-ce11-tfstate"
     key    = "marlon.tfstate" #Change this
-    region = "ap-southeast-1"
+    region = "us-east-1"
   }
 }
 
 /*
 terraform {
   backend "s3" {
-    bucket = "sctp-core-tfstate"
+    bucket = "sctp-ce11-tfstate"
     key    = "marlon.tfstate" #Change this 
-    region = "ap-southeast-1"
+    region = "us-east-1"
   }
 }
 */
