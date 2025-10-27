@@ -1,3 +1,8 @@
+
+provider "aws" {
+  region = "us-east-1"
+}
+
 terraform {
   # Specify the required Terraform version
   required_version = ">= 1.5.0"
@@ -19,10 +24,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "random_id" "bucket_id" {
   byte_length = 4
 }
@@ -31,7 +32,7 @@ resource "random_id" "bucket_id" {
 data "aws_caller_identity" "current" {}
 
 locals {
-  name_prefix = lower(split("/", "${data.aws_caller_identity.current.arn}")[1])
+  name_prefix = split("/", "${data.aws_caller_identity.current.arn}")[1]
   account_id  = data.aws_caller_identity.current.account_id
 }
 
