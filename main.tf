@@ -50,5 +50,5 @@ resource "aws_s3_bucket" "s3_tf" {
   # checkov:skip=CKV2_AWS_61:Ensure that an S3 bucket has a lifecycle configuration
   # checkov:skip=CKV_AWS_21:Ensure all data stored in the S3 bucket have versioning enabled
   # checkov:skip=CKV_AWS_144:Ensure that S3 bucket has cross-region replication enabled
-  bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}" 
- }
+  bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
+}
