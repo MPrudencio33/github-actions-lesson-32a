@@ -28,13 +28,7 @@ locals {
   account_id  = data.aws_caller_identity.current.account_id
 }
 
-resource "aws_s3_bucket" "s3_tf" {
-  # Updated S3 bucket resource without deprecated interpolation
-  bucket = format("%s-s3-tf-bkt-%s", local.name_prefix, tostring(local.account_id)) # bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
-}
 
-/*
-# Updated S3 bucket resource without deprecated interpolation
 resource "aws_s3_bucket" "s3_tf" {
   # checkov:skip=CKV_AWS_145:Ensure that S3 buckets are encrypted with KMS by default
   # checkov:skip=CKV_AWS_18:Ensure the S3 bucket has access logging enabled
@@ -43,6 +37,6 @@ resource "aws_s3_bucket" "s3_tf" {
   # checkov:skip=CKV2_AWS_61:Ensure that an S3 bucket has a lifecycle configuration
   # checkov:skip=CKV_AWS_21:Ensure all data stored in the S3 bucket have versioning enabled
   # checkov:skip=CKV_AWS_144:Ensure that S3 bucket has cross-region replication enabled
+  # Updated S3 bucket resource without deprecated interpolation
   bucket = format("%s-s3-tf-bkt-%s", local.name_prefix, tostring(local.account_id)) # bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
 }
-*/
